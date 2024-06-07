@@ -1,11 +1,11 @@
 import machine
 import utime
 
-led_red = machine.Pin(27, machine.Pin.OUT)
+led_red = machine.Pin(22, machine.Pin.OUT)
 
 led_green = machine.Pin(20, machine.Pin.OUT)
 
-led_blue = machine.Pin(16, machine.Pin.OUT)
+led_blue = machine.Pin(18, machine.Pin.OUT)
 
 while True:
     led_red.value(1)
