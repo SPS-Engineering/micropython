@@ -19,7 +19,7 @@ np = neopixel.NeoPixel(machine.Pin(NEOPIXEL_PIN), NUM_PIXELS)
 # --- HELPER FUNCTION: SET COLOR WITH BRIGHTNESS (GRB Order) ---
 # This function makes it easy to set the color and brightness of your NeoPixel.
 # It assumes your NeoPixel is a GRB (Green, Red, Blue) type.
-def set_pixel_grb(target_g, target_r, target_b, brightness_factor=1.0):
+def set_pixel_grb(target_g, target_r, target_b, brightness=1.0):
     """
     Sets all connected NeoPixels to a specific GRB color with adjustable brightness.
 
@@ -27,19 +27,19 @@ def set_pixel_grb(target_g, target_r, target_b, brightness_factor=1.0):
         target_g (int): Desired Green component (0-255).
         target_r (int): Desired Red component (0-255).
         target_b (int): Desired Blue component (0-255).
-        brightness_factor (float): How bright the LED should be (0.0 = off, 1.0 = full brightness).
+        brightness (float): How bright the LED should be (0.0 = off, 1.0 = full brightness).
                                    Default is 1.0 (full brightness).
     """
     # Check if the brightness factor is within a valid range
-    if not 0.0 <= brightness_factor <= 1.0:
+    if not 0.0 <= brightness <= 1.0:
         print("Warning: Brightness factor must be between 0.0 and 1.0. Using default 1.0.")
-        brightness_factor = 1.0
+        brightness = 1.0
 
     # Apply the brightness factor to each color component
     # We use int() to convert the result to a whole number
-    g = int(target_g * brightness_factor)
-    r = int(target_r * brightness_factor)
-    b = int(target_b * brightness_factor)
+    g = int(target_g * brightness)
+    r = int(target_r * brightness)
+    b = int(target_b * brightness)
 
     # Ensure values are strictly within the 0-255 range (safety check)
     g = max(0, min(255, g))
