@@ -1,8 +1,8 @@
 from machine import Pin
 import utime
 
-button = Pin(14, Pin.IN, Pin.PULL_UP)
-led_g = Pin(16, Pin.OUT)
+button = Pin(16, Pin.IN, Pin.PULL_UP)
+led_g = Pin(22, Pin.OUT)
 
 while True:
     if button.value() == 0:
