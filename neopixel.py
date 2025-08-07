@@ -19,7 +19,7 @@ np = neopixel.NeoPixel(machine.Pin(NEOPIXEL_PIN), NUM_PIXELS)
 # --- HELPER FUNCTION: SET COLOR WITH BRIGHTNESS (GRB Order) ---
 # This function makes it easy to set the color and brightness of your NeoPixel.
 # It assumes your NeoPixel is a GRB (Green, Red, Blue) type.
-def set_pixel_color_grb(target_g, target_r, target_b, brightness_factor=1.0):
+def set_pixel_grb(target_g, target_r, target_b, brightness_factor=1.0):
     """
     Sets all connected NeoPixels to a specific GRB color with adjustable brightness.
 
@@ -62,36 +62,36 @@ while True:
     # --- RED COLOR ---
     print("Showing RED at full brightness...")
     # For a GRB LED, Red is (G=0, R=255, B=0)
-    set_pixel_color_grb(0, 255, 0, 1.0) # Full brightness
+    set_pixel_grb(0, 255, 0, 1.0) # Full brightness
     time.sleep(1) # Wait for 1 second
 
     # --- DIM RED COLOR ---
     print("Showing DIM RED (50% brightness)...")
-    set_pixel_color_grb(0, 255, 0, 0.5) # 50% brightness
+    set_pixel_grb(0, 255, 0, 0.5) # 50% brightness
     time.sleep(1) # Wait for 1 second
 
     # --- GREEN COLOR ---
     print("Showing GREEN at full brightness...")
     # For a GRB LED, Green is (G=255, R=0, B=0)
-    set_pixel_color_grb(255, 0, 0, 1.0)
+    set_pixel_grb(255, 0, 0, 1.0)
     time.sleep(1) # Wait for 1 second
 
     # --- BLUE COLOR ---
     print("Showing BLUE at full brightness...")
     # For a GRB LED, Blue is (G=0, R=0, B=255)
-    set_pixel_color_grb(0, 0, 255, 1.0)
+    set_pixel_grb(0, 0, 255, 1.0)
     time.sleep(1) # Wait for 1 second
 
     # --- MAGENTA (RED + BLUE) ---
     print("Showing MAGENTA...")
     # Red (0, 255, 0) + Blue (0, 0, 255) = (0, 255, 255) in GRB
-    set_pixel_color_grb(0, 255, 255, 1.0)
+    set_pixel_grb(0, 255, 255, 1.0)
     time.sleep(1)
 
     # --- WHITE COLOR (all colors on) ---
     print("Showing WHITE...")
     # White is all colors on full. For GRB: (G=255, R=255, B=255)
-    set_pixel_color_grb(255, 255, 255, 1.0)
+    set_pixel_grb(255, 255, 255, 1.0)
     time.sleep(1)
 
     # --- DIM WHITE COLOR ---
