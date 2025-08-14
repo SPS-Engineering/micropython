@@ -1,11 +1,8 @@
 from machine import Pin, ADC
 import utime
 
-potentiometer_pin = Pin(26, Pin.IN)
-adc = ADC(potentiometer_pin)
-
+pot = ADC(26) 
 
 while True:
-    potentiometer_value = adc.read_u16()
-    print(potentiometer_value)
+    digital_value = pot.read_u16()  
     utime.sleep(0.1)
